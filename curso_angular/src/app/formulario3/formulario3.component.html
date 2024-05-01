@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body">
+      
+        <form>
+            <div class="mb-2">
+                <label class="form-label">
+                    Nombre
+                </label>
+        
+                <input type="text" [formControl]="name" class="form-control" placeholder="Ingresar nombre">
+          </div>
+    
+          <div class="alert alert-danger mt-2" [hidden]="name.valid">
+            El nombre es obligatorio
+          </div>
+
+          <div class="mb-2">
+                <label class="form-label">
+                    Email
+                </label>    
+            <input type="email"  [formControl]="email" class="form-control" placeholder="Ingresar email">
+
+            <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+                <span *ngIf="email.errors?.['required']">
+                    El email es obligatorio
+                </span>
+                <span *ngIf="email.errors?.['email']">
+                    El email debe ser válido
+                </span>
+            </div>
+          </div>  
+        </form>
+        
+    </div>
+
+</div>
