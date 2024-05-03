@@ -1,13 +1,13 @@
 <div class="card">
     <div class="card-body">
       
-        <form>
+        <form [formGroup]="formUser" (ngSubmit)="procesar()">
             <div class="mb-2">
                 <label class="form-label">
                     Nombre
                 </label>
         
-                <input type="text" [formControl]="name" class="form-control" placeholder="Ingresar nombre">
+                <input type="text" formControlName="name" class="form-control" placeholder="Ingresar nombre">
           </div>
     
           <div class="alert alert-danger mt-2" [hidden]="name.valid">
@@ -18,19 +18,24 @@
                 <label class="form-label">
                     Email
                 </label>    
-            <input type="email"  [formControl]="email" class="form-control" placeholder="Ingresar email">
+            <input type="email" formControlName="email" class="form-control" placeholder="Ingresar email">
 
-            <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
-                <span *ngIf="email.errors?.['required']">
+            <div class="alert alert-danger mt-2" [hidden]="email?.valid || email?.pristine">
+                <span *ngIf="email?.errors?.['required']">
                     El email es obligatorio
                 </span>
-                <span *ngIf="email.errors?.['email']">
+                <span *ngIf="email?.errors?.['email']">
                     El email debe ser válido
                 </span>
             </div>
           </div>  
+
+          <button type="submit" class="btn btn-primary">
+            Enviar
+          </button>
         </form>
         
     </div>
 
 </div>
+{{formUser.value | json}}
