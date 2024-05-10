@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { HomeComponent } from '../home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes =[
   {
@@ -18,7 +19,8 @@ const routes: Routes =[
   ],
   imports: [
     CommonModule,
-    WelcomeRoutingModule
+    WelcomeRoutingModule,
+    SharedModule
   ]
 })
 export class WelcomeModule { }
